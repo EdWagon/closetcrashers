@@ -72,3 +72,9 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+# set up an environment Variable
+gem "dotenv-rails"
+
+# Cloud Image Repository
+gem "cloudinary"
