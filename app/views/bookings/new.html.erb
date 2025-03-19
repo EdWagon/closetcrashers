@@ -1,0 +1,14 @@
+<h1>Making your new booking!!!</h1>
+
+
+
+<%= simple_form_for @booking do |f| %>
+  <%= f.input :start_date, as: :date, html5: true, input_html: { id: 'start_date' } %>
+  <%= f.input :end_date, as: :date, html5: true, input_html: { id: 'end_date' } %>
+
+  <p>The total price</p>
+ <input type="text" class="form-control" value="<%= @booking.start_date && @booking.end_date && @booking.end_date > @booking.start_date ? ((@booking.end_date - @booking.start_date).to_i * @booking.apparel.price) / 100.0 : 0 %>" readonly>
+  <%= f.button :submit, 'Create Booking' %>
+<% end %>
+
+<%= link_to 'back', apparels_path %>

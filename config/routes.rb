@@ -1,8 +1,18 @@
 Rails.application.routes.draw do
   devise_for :users
+
   root to: "apparels#index"
+
   resources :users, only: %i[show new create]
-  resources :apparels, only: %i[show]
+
+  resources :apparels, only: %i[index show]
+
+  resources :bookings, only: %i[index show new destroy] do
+    member do
+      patch :accept
+      patch :reject
+    end
+  end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

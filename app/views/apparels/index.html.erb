@@ -2,4 +2,8 @@
 <% @apparels.each do |apparel| %>
   <h2><%= link_to apparel.name, apparel_path(apparel) %></h2>
   <p><%= apparel.description %></p>
+  <td>
+    <%= link_to 'show it', apparel %>
+    <%= link_to 'book it', new_booking_path(apparel_id: apparel.id) %>
+  </td>
 <% end %>

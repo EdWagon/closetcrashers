@@ -1,0 +1,9 @@
+<h1><strong>Apparel:</strong> <%= @booking.apparel.name %></h1>
+
+
+<p><strong>Start Date:</strong> <%= @booking.start_date %></p>
+<p><strong>End Date:</strong> <%= @booking.end_date %></p>
+<p><strong>Order Price:</strong> <%= @booking.order_price %></p>
+<p><strong>Status:</strong> <%= @booking.status.titleize %></p>
+
+<%= link_to 'back', bookings_path%>
