@@ -1,9 +1,13 @@
-<h2>Sign up</h2>
+<div class="logo-div"><img src="/assets/Logo-main.png" alt="My Logo" class="logo"></div>
+
+<div class ="title"><h1>Create a New User</h1></div>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
+    <%= f.input :first_name %>
+    <%= f.input :last_name %>
     <%= f.input :email,
                 required: true,
                 autofocus: true,
@@ -15,10 +19,12 @@
     <%= f.input :password_confirmation,
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
+    <%= f.input :phone %>
+    <%= f.input :address %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
+    <%= f.button :submit, "Create Users" %>
   </div>
 <% end %>
 
