@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "apparels#index"
   resources :users, only: %i[show new create]
-  resources :apparels, only: %i[show]
+  resources :apparels, only: %i[show index new create]
+
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

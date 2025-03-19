@@ -5,5 +5,40 @@ class ApparelsController < ApplicationController
 
   def show
     @apparel = Apparel.find(params[:id])
+    @apparel.price = @apparel.price / 100
+  end
+
+  def new
+    @apparel = Apparel.new
+  end
+
+  def create
+    params[:apparel][:color] = Color.find(params[:apparel][:color].to_i)
+
+    @apparel = Apparel.new(apparel_params)
+    @apparel.price = @apparel.price * 100
+
+    respond_to do |format|
+      if @apparel.save
+        binding.break
+        format.html { redirect_to @apparel, notice: "Test was successfully created." }
+        format.json { render :show, status: :created, location: @apparel }
+      else
+        binding.break
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @apparel.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  private
+
+  def apparel_params
+    params.require(:apparel).permit(:name, :description, :price, :address, :color, photos: [])
+
+    # TODO: Keep in for reference and amend strong params
+    # bookmark_params_hash = params.require(:bookmark).permit(:comment, :movie_id)
+    # bookmark_params_hash[:list_id] = params[:list_id]
+    # bookmark_params_hash
   end
 end
