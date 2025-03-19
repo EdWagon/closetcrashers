@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_03_18_063349) do
+ActiveRecord::Schema[7.1].define(version: 2025_03_19_003215) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -42,6 +42,23 @@ ActiveRecord::Schema[7.1].define(version: 2025_03_18_063349) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "apparel_statuses", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "apparels", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.decimal "price"
+    t.string "address"
+    t.bigint "color_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["color_id"], name: "index_apparels_on_color_id"
+  end
+
   create_table "brands", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -61,6 +78,18 @@ ActiveRecord::Schema[7.1].define(version: 2025_03_18_063349) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "fits", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "genders", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "materials", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -68,6 +97,12 @@ ActiveRecord::Schema[7.1].define(version: 2025_03_18_063349) do
   end
 
   create_table "styles", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "types", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -91,4 +126,5 @@ ActiveRecord::Schema[7.1].define(version: 2025_03_18_063349) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "apparels", "colors"
 end
