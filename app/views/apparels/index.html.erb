@@ -1,0 +1,5 @@
+<h1>Apparels#index</h1>
+<% @apparels.each do |apparel| %>
+  <h2><%= link_to apparel.name, apparel_path(apparel) %></h2>
+  <p><%= apparel.description %></p>
+<% end %>

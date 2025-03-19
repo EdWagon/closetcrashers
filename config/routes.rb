@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
-
-  resources :users, only: [:show, :new, :create]
-
-  root to: "pages#home"
+  root to: "apparels#index"
+  resources :users, only: %i[show new create]
+  resources :apparels, only: %i[show]
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

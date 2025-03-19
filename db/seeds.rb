@@ -7,3 +7,11 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+Color.destroy_all
+red = Color.create(name: "red", hex: "#7C0A02")
+blue = Color.create(name: "blue", hex: "##1E90FF")
+
+Apparel.destroy_all
+Apparel.create(name:"Red Dress", description:"This is a beautiful blue dress", price: 23.46, address: "23 Darlinghurst road, potts point", color: red)
+Apparel.create(name:"Blue Dress", description:"This is a beautiful blue dress", price: 13.56, address: "23 Darlinghurst road, potts point", color: blue)
