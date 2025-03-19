@@ -114,7 +114,6 @@ ActiveRecord::Schema[7.1].define(version: 2025_03_19_003215) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string "role"
     t.string "first_name"
     t.string "last_name"
     t.integer "phone"
