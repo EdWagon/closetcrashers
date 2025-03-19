@@ -35,3 +35,22 @@
   margin-top: 12px;
 
 }
+//--<log In page>--//
+.log-in-button{
+  display: flex;
+  width: 550px;
+  min-width: 320px;
+  height: 50px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px;
+  position: relative;
+  background-color: #ffffff;
+  border-radius: 6px;
+  border-top: 0.5px solid black;   // Set color explicitly
+  border-right: 5px solid black;
+  border-bottom: 5px solid black;
+  border-left: 0.5px solid black;
+  margin-top: 12px;
+}

@@ -1,5 +1,29 @@
-<h1>Apparels#index</h1>
-<% @apparels.each do |apparel| %>
-  <h2><%= link_to apparel.name, apparel_path(apparel) %></h2>
-  <p><%= apparel.description %></p>
-<% end %>
+
+<div class="apparel-body">
+  <div class="logo-div"><img src="/assets/Logo-main.png" alt="My Logo" class="logo"></div>
+  <div class ="title"><h1>Welcome to Closet Crashers</h1></div>
+
+      <div class="search-container">
+      <%# <%= form_with url: apparels_path, method: :get, local: true, class: "search-form" do %>
+        <input type="text" name="query" placeholder="Search apparels..." class="search-input">
+        <button type="submit" class="search-btn">Search</button>
+      <%# <% end %>
+      </div>
+
+
+  <div class="row">
+    <% @apparels.each do |apparel| %>
+      <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center">
+        <div class="apparel-card">
+          <div class="apparel-img">
+            <img src="/assets/apparel-example.png" alt="apparel image" class="apparel-image">
+          </div>
+          <div class="text-wrapper">
+            <%= link_to apparel.name, apparel_path(apparel) %>
+            <p class="apparel-description"><%= apparel.description %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

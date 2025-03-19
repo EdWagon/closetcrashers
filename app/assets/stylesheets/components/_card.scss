@@ -1,0 +1,65 @@
+.apparel-card {
+  display: flex;
+  flex-direction: column; // Ensure the image is at the top
+  // align-items: center;
+  max-width: 320px; // Prevent it from getting too big
+  min-width: 250px; // Ensure it doesn't shrink too much
+  width: 400px;
+  height: 450px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  // border-top: 0.5px solid black;
+  // border-right: 5px solid black;
+  // border-bottom: 5px solid black;
+  // border-left: 0.5px solid black;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+  margin: 4px auto;
+  padding-bottom: 16px;
+
+  &:hover {
+    transform: scale(1.03);
+  }
+}
+.row{
+  margin: 4px;
+}
+
+/* Image Section */
+.apparel-img {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 8px 8px 0 0; // Make the top corners rounded
+}
+
+.apparel-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; // Ensures the image fills the space properly
+  display: block;
+}
+
+
+/* Adjust text styling */
+.text-wrapper {
+  font-family: "Montserrat-Bold", Helvetica;
+  font-weight: 700;
+  color: #000000;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: 22px;
+  white-space: nowrap;
+  margin: 24px;
+  text-align: left;
+}
+
+/* Adjust description */
+.apparel-description {
+  font-family: "Montserrat-regular", Helvetica;
+  font-size: 16px;
+  color: #333;
+  margin-top: 8px;
+  text-align: left;
+}
