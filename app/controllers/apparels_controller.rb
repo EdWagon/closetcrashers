@@ -20,11 +20,9 @@ class ApparelsController < ApplicationController
 
     respond_to do |format|
       if @apparel.save
-        binding.break
         format.html { redirect_to @apparel, notice: "Test was successfully created." }
         format.json { render :show, status: :created, location: @apparel }
       else
-        binding.break
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @apparel.errors, status: :unprocessable_entity }
       end
