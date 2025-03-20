@@ -5,10 +5,34 @@
   color: #2367B1;
 
 
-};
+}
 
 .title{
+  font-family: "Montserrat-Bold", Helvetica;
+  font-weight: 700;
   justify-self: center;
-  margin: 12px;
+  font-size: 32px;
+  margin: 24px;
   padding: 12px;
-};
+  border-radius: 4px;
+  color: #2367B1;
+  font-size: 2.5rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* Apparel Description Page */
+.product-title {
+  font-size: 2rem;
+}
+
+.price {
+  font-size: 1.5rem;
+}
+
+.description{
+  font-size: 1.2rem;
+  opacity: 0.8;
+  max-width: 80%;
+  color: black;
+}
