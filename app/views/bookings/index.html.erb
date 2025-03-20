@@ -1,0 +1,15 @@
+<h1>Your bookings</h1>
+
+<% @bookings.each do |booking| %>
+      <tr>
+        <td><%= booking.apparel.name %></td>
+        <td><%= booking.start_date %></td>
+        <td><%= booking.end_date %></td>
+        <td><%= booking.order_price %></td>
+        <td><%= booking.status.titleize %></td>
+        <td>
+          <%= link_to 'Show', booking %>
+          <%= link_to 'Destroy', booking, method: :delete, data: { confirm: 'do we cancel it?' } %>
+        </td>
+      </tr>
+<% end %>
