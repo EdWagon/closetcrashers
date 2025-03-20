@@ -1,0 +1,45 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
+  <div class="container-fluid d-flex justify-content-between align-items-center">
+    <%= link_to root_path, class: "navbar-brand ms-3" do %>
+      <%= image_tag "Logo-main.png", alt: "My Logo", class: "logo", style: "height: 80px;" %>
+    <% end %>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse flex-grow-0" id="navbarNav">
+      <ul class="navbar-nav mx-auto mb-2 mb-lg-0 position-absolute start-50 translate-middle-x">
+        <li class="nav-item">
+          <%= link_to "Rent Your Closet", new_apparel_path, class: "nav-link fw-bold text-dark" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Manage Bookings", "INPUT THE PATH HERE", class: "nav-link fw-bold text-dark" %>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+        <li class="nav-item me-3">
+          <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-outline-dark rounded-pill fw-bold" %>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fas fa-user-circle fa-2x text-dark"></i>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+            <li>
+              <%= link_to "Profile", edit_user_registration_path, class: "dropdown-item fw-bold" %>
+            </li>
+            <li>
+              <%= link_to "Sign In", new_user_session_path, class: "dropdown-item fw-bold" %>
+            </li>
+            <li>
+              <%= link_to "Log Out", destroy_user_session_path, class: "dropdown-item fw-bold", data: { turbo_method: :delete } %>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
