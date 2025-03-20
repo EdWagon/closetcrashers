@@ -1,6 +1,6 @@
 class Apparel < ApplicationRecord
   has_many :bookings, dependent: :destroy
-
+  belongs_to :user, required: true
   belongs_to :color, required: false
   validates :name, presence: true
   validates :price, presence: true

@@ -1,4 +1,5 @@
 class ApparelsController < ApplicationController
+  before_action :authenticate_user!, only: %i[new create]
   def index
     @apparels = Apparel.all
 
@@ -17,20 +18,27 @@ class ApparelsController < ApplicationController
   end
 
   def new
-    @apparel = Apparel.new
+    @apparel = Apparel.new(user: current_user)
   end
 
   def create
-    params[:apparel][:color] = Color.find(params[:apparel][:color].to_i)
+    color = Color.find(params[:apparel][:color].to_i)
+    params[:apparel].delete(:color)
+
 
     @apparel = Apparel.new(apparel_params)
     @apparel.price = @apparel.price * 100
+    @apparel.color = color
+    @apparel.user = current_user
 
     respond_to do |format|
       if @apparel.save
+
         format.html { redirect_to @apparel, notice: "Test was successfully created." }
         format.json { render :show, status: :created, location: @apparel }
       else
+        flash.now[:notice] = @apparel.errors.full_messages.first
+        # raise
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @apparel.errors, status: :unprocessable_entity }
       end
@@ -40,11 +48,6 @@ class ApparelsController < ApplicationController
   private
 
   def apparel_params
-    params.require(:apparel).permit(:name, :description, :price, :address, :color, photos: [])
-
-    # TODO: Keep in for reference and amend strong params
-    # bookmark_params_hash = params.require(:bookmark).permit(:comment, :movie_id)
-    # bookmark_params_hash[:list_id] = params[:list_id]
-    # bookmark_params_hash
+    params.require(:apparel).permit(:name, :description, :price, :address, :user, photos: [] )
   end
 end
