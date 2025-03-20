@@ -1,4 +1,7 @@
-<h2>Forgot your password?</h2>
+<div class="apparel-body">
+  <div class="logo-div"><img src="/assets/Logo-main.png" alt="My Logo" class="logo">
+  </div>
+<div class ="title"><h1>Forgot Your Password?</h1></div>
 
 <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
   <%= f.error_notification %>
@@ -11,7 +14,7 @@
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Send me reset password instructions" %>
+    <%= f.button :submit, "Reset password" %>
   </div>
   <%= render "devise/shared/links" %>
 <% end %>
