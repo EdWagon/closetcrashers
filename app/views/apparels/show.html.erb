@@ -7,9 +7,7 @@
       <div class="row">
         <!-- Product Images Section -->
         <div class="col-md-6">
-            <div class="apparel-img">
-                <img src="/assets/apparel-example.png" alt="apparel image" class="apparel-image">
-            </div>
+
           <% if @apparel.photos.any? %>
             <% random_photo = @apparel.photos.sample %>
             <div class="main-image">
@@ -37,9 +35,9 @@
           <p class="price h4 text-primary fw-bold">$<%= @apparel.price %></p>
 
           <p><strong>Location:</strong> <%= @apparel.address %></p>
-         
+
           <%= link_to 'book it', new_apparel_booking_path(@apparel) , class: "btn-Primary"%>
-      
+
         </div>
       </div>
     </div>
