@@ -1,6 +1,14 @@
 class ApparelsController < ApplicationController
   def index
     @apparels = Apparel.all
+
+    @markers = @apparels.geocoded.map do |apparel|
+      {
+        lat: apparel.latitude,
+        lng: apparel.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: {apparel: apparel})
+      }
+    end
   end
 
   def show
