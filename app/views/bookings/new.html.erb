@@ -1,4 +1,7 @@
-<h1>Making your new booking!!!</h1>
+<div class="apparel-body">
+  <div class="logo-div"><img src="/assets/Logo-main.png" alt="My Logo" class="logo">
+  </div>
+<div class ="title"><h1>Make Your Booking</h1></div>
 
 <%= simple_form_for @booking, url: apparel_bookings_path(@booking.apparel) do |f| %>
   <%= f.input :start_date, as: :date, html5: true, input_html: { id: 'start_date' } %>
