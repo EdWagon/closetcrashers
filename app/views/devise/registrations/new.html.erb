@@ -1,34 +1,46 @@
-<div class="create-form-body">
-  <div class="top-section">
-    <div class ="title"><h1>Create a New User</h1></div>
-    <div class="logo-div"><img src="/assets/Logo-main.png" alt="My Logo" class="logo"></div>
+<div class="container-fluid vh-100 d-flex align-items-center justify-content-center">
+  <div class="row w-100 shadow-lg rounded-4 overflow-hidden">
 
-  </div>
-
-  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <%= f.error_notification %>
-
-    <div class="form-inputs">
-      <%= f.input :first_name %>
-      <%= f.input :last_name %>
-      <%= f.input :email,
-                  required: true,
-                  autofocus: true,
-                  input_html: { autocomplete: "email" }%>
-      <%= f.input :password,
-                  required: true,
-                  hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                  input_html: { autocomplete: "new-password" } %>
-      <%= f.input :password_confirmation,
-                  required: true,
-                  input_html: { autocomplete: "new-password" } %>
-      <%= f.input :phone %>
-      <%= f.input :address %>
-  </div>
-
-    <div class="form-actions">
-      <%= f.button :submit, "Create Users" %>
+    <!-- Left Section (Welcome Message) -->
+    <div class="col-lg-6 col-md-6 col-12 text-center p-5 welcome-section" id="logo-text-wrapper">
+      <img src="/assets/Logo-main.png" alt="My Logo" class="img-fluid mb-4 logo">
+      <h1 class="title fw-bold">Create a New User</h1>
+      <p class="description mt-3">Join us today and start your journey!</p>
     </div>
-    <%= render "devise/shared/links" %>
-  <% end %>
+
+    <!-- Right Section (Signup Form) -->
+    <div class="col-lg-6 col-md-6 col-12 p-5 d-flex flex-column justify-content-center">
+        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= f.error_notification %>
+
+          <div class="form-group mb-3">
+            <%= f.input :first_name, input_html: { class: "form-control" } %>
+          </div>
+
+          <div class="form-group mb-3">
+            <%= f.input :last_name, input_html: { class: "form-control" } %>
+          </div>
+
+          <div class="form-group mb-3">
+            <%= f.input :email, required: true, autofocus: true, input_html: { class: "form-control", autocomplete: "email" } %>
+          </div>
+
+          <div class="form-group mb-3">
+            <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), input_html: { class: "form-control", autocomplete: "new-password" } %>
+          </div>
+
+          <div class="form-group mb-3">
+            <%= f.input :password_confirmation, required: true, input_html: { class: "form-control", autocomplete: "new-password" } %>
+          </div>
+
+          <div class="form-actions">
+            <%= f.button :submit, "Create Users" %>
+          </div>
+
+          <%= render "devise/shared/links" %>
+        <% end %>
+      </div>
+
+
+  </div>
 </div>
