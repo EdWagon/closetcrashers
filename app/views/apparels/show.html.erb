@@ -5,4 +5,4 @@
 <p><%= @apparel.color.name %></p>
 <p><%= @apparel.price %></p>
 <p><%= @apparel.address %></p>
-<%= link_to 'book it', new_booking_path(apparel_id: @apparel.id), class: 'btn btn-primary' %>
+<%= link_to 'book it', new_apparel_booking_path(@apparel) %>

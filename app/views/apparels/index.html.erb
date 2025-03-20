@@ -4,6 +4,6 @@
   <p><%= apparel.description %></p>
   <td>
     <%= link_to 'show it', apparel %>
-    <%= link_to 'book it', new_booking_path(apparel_id: apparel.id) %>
+    <%= link_to 'book it', new_apparel_booking_path(apparel) %>
   </td>
 <% end %>

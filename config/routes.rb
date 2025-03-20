@@ -5,14 +5,16 @@ Rails.application.routes.draw do
 
   resources :users, only: %i[show new create]
 
-  resources :apparels, only: %i[index show]
-
-  resources :bookings, only: %i[index show new destroy] do
-    member do
-      patch :accept
-      patch :reject
+  resources :apparels, only: %i[index show] do
+    resources :bookings, only: %i[index show new create] do
+      member do
+        patch :accept
+        patch :reject
+        patch :cancel
+      end
     end
   end
+
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

@@ -6,4 +6,4 @@
 <p><strong>Order Price:</strong> <%= @booking.order_price %></p>
 <p><strong>Status:</strong> <%= @booking.status.titleize %></p>
 
-<%= link_to 'back', bookings_path%>
+<%= link_to 'back', apparel_booking_path(@apparel, @booking) %>

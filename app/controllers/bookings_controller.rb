@@ -1,31 +1,40 @@
 class BookingsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_booking, only: [:show, :destroy, :accept, :reject]
+  before_action :set_booking, only: %i[show accept cancel reject]
 
   def index
-    @bookings = current_user.bookings
+    @apparel = Apparel.find(params[:apparel_id])
+    @bookings = @apparel.bookings
   end
 
   def show
+    @apparel = Apparel.find(params[:apparel_id])
   end
 
   def new
     @apparel = Apparel.find(params[:apparel_id])
-    @booking = Booking.new(apparel: @apparel)
+    @booking = Booking.new(apparel: @apparel, user: current_user)
   end
 
   def create
     @booking = current_user.bookings.new(booking_params)
+    @booking.apparel = Apparel.find(params[:apparel_id])
+    @apparel = @booking.apparel
     if @booking.save
-      redirect_to @booking, notice: 'Your booking is submited!! Waiting for the trendsetter to accept...'
+      redirect_to apparel_booking_path(@apparel, @booking), notice: 'Your booking is submited!! Waiting for the trendsetter to accept...'
     else
-      @apparel = @booking.apparel
+      # flash.now[:notice] = @booking.errors.messages.first
       render :new, status: :unprocessable_entity
     end
   end
-  def destroy
-    @booking.destroy
-    redirect_to bookings_url, notice: 'The booking is canceled'
+
+  def cancel
+    if @booking.pending?
+      @booking.canceled!
+      redirect_to @booking, notice: 'You ve accepted the booking'
+    else
+      redirect_to @booking, alert: 'Didnt work'
+    end
   end
 
   def accept
@@ -53,6 +62,6 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:apparel_id, :start_date, :end_date)
+    params.require(:booking).permit(:start_date, :end_date)
   end
 end
