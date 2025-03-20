@@ -1,0 +1,41 @@
+.form-inputs input {
+  display: flex;
+  width: 550px;
+  min-width: 320px;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  position: relative;
+  background-color: #F3F3F3;
+  border-radius: 6px;
+  border: 1px solid;
+  border-color: #A8A8A9;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+
+.new_user{
+  justify-self: center;
+  width: 550px;
+  min-width: 320px;
+
+}
+
+.logo-div {
+  justify-self: center;
+}
+
+.logo-div {
+  width: 100px;
+  height: 100px;
+}
+
+.new_user {
+  width: auto;
+  border: 0.5px solid #A8A8A9; /* Add a solid border */
+  border-radius: 5px; /* Optional: Rounded corners */
+  padding: 20px; /* Add space inside the border */
+  background: rgb(237, 237, 237); /* Ensure background color */
+}
