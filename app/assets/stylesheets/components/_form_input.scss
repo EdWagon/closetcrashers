@@ -54,3 +54,24 @@
   text-align: center;
   padding: 50px;
 }
+
+/* Targeting checkbox size */
+.custom-checkbox {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+}
+
+.form-container {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+}

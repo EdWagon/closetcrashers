@@ -1,4 +1,7 @@
-<h2>Change your password</h2>
+<div class="apparel-body">
+  <div class="logo-div"><img src="/assets/Logo-main.png" alt="My Logo" class="logo">
+  </div>
+<div class ="title"><h1>Change Your Password</h1></div>
 
 <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
   <%= f.error_notification %>
