@@ -8,7 +8,7 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   en
 
-require 'URI'
+# require 'URI'
 require 'open-uri'
 
 puts ("Inserting users")
