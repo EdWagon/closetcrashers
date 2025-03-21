@@ -1,7 +1,7 @@
-.form-inputs input {
+.form-inputs inputs {
   display: flex;
   width: flex;
-  min-width: 320px;
+  // min-width: 320px;
   align-items: center;
   gap: 10px;
   padding: 10px;
@@ -14,6 +14,10 @@
   align-items: center;
   gap: 10px;
   position: relative;
+}
+
+.min-width-320 {
+  min-width: 320px;
 }
 
 .new_user{
@@ -75,3 +79,8 @@
   display: flex;
   align-items: center;
 }
+
+// .radio_buttons {
+//   color: red;
+//   border: 1px dashed red;
+// }

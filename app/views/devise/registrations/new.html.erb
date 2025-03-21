@@ -1,11 +1,10 @@
-<div class="container-fluid vh-100 d-flex align-items-center justify-content-center">
+<div class="container-fluid d-flex align-items-center justify-content-center">
   <div class="row w-100 shadow-lg rounded-4 overflow-hidden">
 
     <!-- Left Section (Welcome Message) -->
-    <div class="col-lg-6 col-md-6 col-12 text-center p-5 welcome-section" id="logo-text-wrapper">
-      <img src="/assets/Logo-main.png" alt="My Logo" class="img-fluid mb-4 logo">
-      <h1 class="title fw-bold">Create a New User</h1>
-      <p class="description mt-3">Join us today and start your journey!</p>
+    <div class="col-lg-6 col-md-6 col-12 text-center pt-5 welcome-section" id="logo-text-wrapper">
+      <h1 class="title fw-bold">Register</h1>
+      <p class="description">Join us today and start your journey!</p>
     </div>
 
     <!-- Right Section (Signup Form) -->
@@ -33,11 +32,9 @@
             <%= f.input :password_confirmation, required: true, input_html: { class: "form-control", autocomplete: "new-password" } %>
           </div>
 
-          <div class="form-actions">
-            <%= f.button :submit, "Create Users" %>
-          </div>
+          <%= f.button :submit, "Register", class: "btn btn-Primary w-100" %>
 
-          <%= render "devise/shared/links" %>
+
         <% end %>
       </div>
 
