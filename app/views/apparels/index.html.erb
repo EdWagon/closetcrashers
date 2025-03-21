@@ -17,12 +17,7 @@
     <% @apparels.each do |apparel| %>
       <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center">
         <div class="apparel-card">
-          <div class="apparel-img">
-            <%= link_to apparel_path(apparel) do %>
-              <img src="/assets/apparel-example.png" alt="apparel image" class="apparel-image">
-            <% end %>
-          </div>
-
+        
           <% if apparel.photos.any? %>
             <% random_photo = apparel.photos.sample %>
             <div class="main-image">

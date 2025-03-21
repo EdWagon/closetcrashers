@@ -1,0 +1,76 @@
+<div class="apparel-body">
+  <div class="logo-div">
+    <img src="/assets/Logo-main.png" alt="My Logo" class="logo">
+  </div>
+
+  <div class="title">
+    <h1>Welcome to Closet Crashers</h1>
+  </div>
+
+  <div>
+    <h2>My Listings</h2>
+    <% if @apparel_listings.any? %>
+      <div class="row">
+        <% @apparel_listings.each do |apparel| %>
+          <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center">
+            <div class="apparel-card">
+              <% if apparel.photos.any? %>
+                <% random_photo = apparel.photos.sample %>
+                <div class="main-image">
+                  <%= cl_image_tag random_photo.key, class: "img-fluid rounded shadow-sm", height: 500, width: 500, crop: :fill %>
+                </div>
+              <% end %>
+              <div class="text-wrapper">
+                <%= link_to apparel.name, apparel_path(apparel) %>
+                <p class="apparel-description"><%= apparel.description %></p>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% else %>
+      <p>Nothing to show!</p>
+    <% end %>
+  </div>
+
+  <div>
+    <h2>Bookings for My Listings</h2>
+    <% if @apparel_bookings.any? %>
+      <% @apparel_bookings.each do |booking| %>
+        <div class="booking-card">
+          <h3><strong>Apparel:</strong> <%= booking.apparel.name %></h3>
+          <p><strong>Start Date:</strong> <%= booking.start_date %></p>
+          <p><strong>End Date:</strong> <%= booking.end_date %></p>
+          <p><strong>Order Price:</strong> <%= booking.order_price %></p>
+          <p><strong>Status:</strong> <%= booking.status.titleize %></p>
+          <% if booking.pending? %>
+            <%= link_to "Accept", accept_apparel_booking_path(booking.apparel, booking), data: { turbo_method: :patch, turbo_confirm: "Are you sure?" }, class: "btn btn-success" %>
+            <%= link_to "Reject", reject_apparel_booking_path(booking.apparel, booking), data: { turbo_method: :patch, turbo_confirm: "Are you sure?" }, class: "btn btn-danger" %>
+          <% end %>
+        </div>
+      <% end %>
+    <% else %>
+      <p>Nothing to show!</p>
+    <% end %>
+  </div>
+
+  <div>
+    <h2>My Requested Bookings</h2>
+    <% if @booking_requests.any? %>
+      <% @booking_requests.each do |booking| %>
+        <div class="booking-card">
+          <h3><strong>Apparel:</strong> <%= booking.apparel.name %></h3>
+          <p><strong>Start Date:</strong> <%= booking.start_date %></p>
+          <p><strong>End Date:</strong> <%= booking.end_date %></p>
+          <p><strong>Order Price:</strong> <%= booking.order_price %></p>
+          <p><strong>Status:</strong> <%= booking.status.titleize %></p>
+          <% if booking.pending? %>
+            <%= link_to "Cancel", cancel_apparel_booking_path(booking.apparel, booking), data: { turbo_method: :patch, turbo_confirm: "Are you sure?" }, class: "btn btn-warning" %>
+          <% end %>
+        </div>
+      <% end %>
+    <% else %>
+      <p>Nothing to show!</p>
+    <% end %>
+  </div>
+</div>

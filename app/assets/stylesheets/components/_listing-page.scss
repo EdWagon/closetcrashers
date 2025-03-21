@@ -1,0 +1,58 @@
+.apparel-body {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background: white;
+}
+
+.logo-div {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+
+  .logo {
+    max-width: 150px;
+  }
+}
+
+.title h1 {
+  text-align: center;
+  color: #2367B1;
+  font-weight: bold;
+}
+
+h2 {
+  margin-top: 30px;
+  color: #333;
+  border-bottom: 2px solid #2367B1;
+  padding-bottom: 5px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+
+
+.btn-success {
+  background: #2367B1;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+
+  &:hover {
+    background: darken(#2367B1, 10%);
+  }
+}
+
+p {
+  color: #333;
+  font-size: 14px;
+}
