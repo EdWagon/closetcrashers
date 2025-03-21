@@ -6,7 +6,10 @@
 #
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+#   en
+
+require 'URI'
+require 'open-uri'
 
 puts ("Inserting users")
 User.destroy_all
