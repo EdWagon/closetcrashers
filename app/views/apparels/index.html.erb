@@ -1,14 +1,11 @@
-
-
 <div class="apparel-body">
-  <div class ="title"><h2>Welcome Crashers</h2></div>
 
-      <div class="search-container">
-      <%# <%= form_with url: apparels_path, method: :get, local: true, class: "search-form" do %>
-        <input type="text" name="query" placeholder="Search apparels..." class="search-input">
-        <button type="submit" class="search-btn">Search</button>
-      <%# <% end %>
-      </div>
+  <div class="search-container">
+    <%# <%= form_with url: apparels_path, method: :get, local: true, class: "search-form" do %>
+      <input type="text" name="query" placeholder="Search apparels..." class="search-input">
+      <button type="submit" class="search-btn">Search</button>
+    <%# <% end %>
+  </div>
 
   <div style="width: 100%; height: 250px;"
     data-controller="map"
@@ -20,29 +17,23 @@
     <% @apparels.each do |apparel| %>
       <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center">
         <div class="apparel-card">
-          <div class="apparel-img">
-
-          </div>
-
+        
           <% if apparel.photos.any? %>
             <% random_photo = apparel.photos.sample %>
             <div class="main-image">
-              <%= cl_image_tag random_photo.key, id: "main-product-image", class: "img-fluid rounded shadow-sm", height: 500, width: 500, crop: :fill %>
+              <%= link_to apparel_path(apparel) do %>
+                <%= cl_image_tag random_photo.key, id: "main-product-image", class: "img-fluid rounded shadow-sm", height: 500, width: 500, crop: :fill %>
+              <% end %>
             </div>
           <% end %>
 
           <div class="text-wrapper">
             <%= link_to apparel.name, apparel_path(apparel) %>
             <p class="apparel-description"><%= apparel.description %></p>
-            <%= link_to 'book it', new_apparel_booking_path(apparel) , class: "btn-Primary"%>
+            <%= link_to 'book it', new_apparel_booking_path(apparel), class: "btn-Primary" %>
           </div>
-
-
-
         </div>
       </div>
     <% end %>
   </div>
 </div>
-
-<%= link_to "Add Apparel",  new_apparel_path, class: "btn-Primary" %>
