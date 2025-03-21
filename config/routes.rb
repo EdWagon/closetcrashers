@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     end
   end
 
-  get "dashboard", to: "pages#dashboard"
+  get "dashboard", to: "dashboard#show"
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

@@ -21,7 +21,7 @@ class BookingsController < ApplicationController
     @booking.apparel = Apparel.find(params[:apparel_id])
     @apparel = @booking.apparel
     if @booking.save
-      redirect_to apparel_booking_path(@apparel, @booking), notice: 'Your booking is submited!! Waiting for the trendsetter to accept...'
+      redirect_to dashboard_path, notice: 'Your booking is submited!! Waiting for the trendsetter to accept...'
     else
       # flash.now[:notice] = @booking.errors.messages.first
       render :new, status: :unprocessable_entity
@@ -31,27 +31,27 @@ class BookingsController < ApplicationController
   def cancel
     if @booking.pending?
       @booking.canceled!
-      redirect_to @booking, notice: 'You ve accepted the booking'
+      redirect_to dashboard_path, notice: 'You\'ve cancelled the booking'
     else
-      redirect_to @booking, alert: 'Didnt work'
+      redirect_to dashboard_path, alert: 'Couldn\'t cancel booking'
     end
   end
 
   def accept
     if @booking.pending?
       @booking.accepted!
-      redirect_to @booking, notice: 'You ve accepted the booking'
+      redirect_to dashboard_path, notice: 'You\'ve accepted the booking'
     else
-      redirect_to @booking, alert: 'Didnt work'
+      redirect_to dashboard_path, alert: 'Couldn\'t accept the booking'
     end
   end
 
   def reject
     if @booking.pending?
       @booking.rejected!
-      redirect_to @booking, notice: 'You ve rejected the booking'
+      redirect_to dashboard_path, notice: 'You\'ve rejected the booking'
     else
-      redirect_to @booking, alert: 'Didnt work'
+      redirect_to dashboard_path, alert: 'Couldn\'t reject the booking'
     end
   end
 
