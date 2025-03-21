@@ -1,76 +1,82 @@
-<div class="apparel-body">
-  <div class="logo-div">
-    <img src="/assets/Logo-main.png" alt="My Logo" class="logo">
-  </div>
+<div class="container-dashboard mt-4">
+  <!-- Logo & Title -->
 
-  <div class="title">
-    <h1>Welcome to Closet Crashers</h1>
-  </div>
 
-  <div>
-    <h2>My Listings</h2>
+  <!-- Listings Section -->
+  <div class="title-section">
+    <h3 class="fw-bold mb-3 text-center">My Listings</h3>
     <% if @apparel_listings.any? %>
-      <div class="row">
+      <div class="row g-4">
         <% @apparel_listings.each do |apparel| %>
-          <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center">
-            <div class="apparel-card">
+          <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+            <div class="card shadow-sm border-0 rounded-4 overflow-hidden">
               <% if apparel.photos.any? %>
                 <% random_photo = apparel.photos.sample %>
-                <div class="main-image">
-                  <%= cl_image_tag random_photo.key, class: "img-fluid rounded shadow-sm", height: 500, width: 500, crop: :fill %>
-                </div>
+                <%= cl_image_tag random_photo.key, class: "card-img-top", height: 300, crop: :fill %>
               <% end %>
-              <div class="text-wrapper">
-                <%= link_to apparel.name, apparel_path(apparel) %>
-                <p class="apparel-description"><%= apparel.description %></p>
+              <div class="card-body">
+                <h5 class="fw-bold"><%= link_to apparel.name, apparel_path(apparel), class: "text-decoration-none text-dark" %></h5>
+                <p class="text-muted"><%= apparel.description.truncate(80) %></p>
               </div>
             </div>
           </div>
         <% end %>
       </div>
     <% else %>
-      <p>Nothing to show!</p>
+      <p class="text-muted">No listings available.</p>
     <% end %>
   </div>
 
-  <div>
-    <h2>Bookings for My Listings</h2>
+  <!-- Bookings Section -->
+  <div class="title-section">
+    <h3 class="fw-bold mb-3 text-center">Bookings for My Listings</h3>
     <% if @apparel_bookings.any? %>
-      <% @apparel_bookings.each do |booking| %>
-        <div class="booking-card">
-          <h3><strong>Apparel:</strong> <%= booking.apparel.name %></h3>
-          <p><strong>Start Date:</strong> <%= booking.start_date %></p>
-          <p><strong>End Date:</strong> <%= booking.end_date %></p>
-          <p><strong>Order Price:</strong> <%= booking.order_price %></p>
-          <p><strong>Status:</strong> <%= booking.status.titleize %></p>
-          <% if booking.pending? %>
-            <%= link_to "Accept", accept_apparel_booking_path(booking.apparel, booking), data: { turbo_method: :patch, turbo_confirm: "Are you sure?" }, class: "btn btn-success" %>
-            <%= link_to "Reject", reject_apparel_booking_path(booking.apparel, booking), data: { turbo_method: :patch, turbo_confirm: "Are you sure?" }, class: "btn btn-danger" %>
-          <% end %>
-        </div>
-      <% end %>
+      <div class="row g-4">
+        <% @apparel_bookings.each do |booking| %>
+          <div class="col-md-6">
+            <div class="card p-3 shadow-sm border-0 rounded-4">
+              <h5 class="fw-bold">Apparel: <%= booking.apparel.name %></h5>
+              <p><strong>Start:</strong> <%= booking.start_date %></p>
+              <p><strong>End:</strong> <%= booking.end_date %></p>
+              <p><strong>Price:</strong> <%= number_to_currency(booking.order_price) %></p>
+              <p><strong>Status:</strong> <span class="badge bg-<%= booking.status == 'pending' ? 'warning' : 'success' %>"><%= booking.status.titleize %></span></p>
+              <% if booking.pending? %>
+                <div class="d-flex gap-2">
+                  <%= link_to "Accept", accept_apparel_booking_path(booking.apparel, booking), data: { turbo_method: :patch, turbo_confirm: "Confirm accept?" }, class: "btn btn-success btn-sm" %>
+                  <%= link_to "Reject", reject_apparel_booking_path(booking.apparel, booking), data: { turbo_method: :patch, turbo_confirm: "Confirm reject?" }, class: "btn btn-danger btn-sm" %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
     <% else %>
-      <p>Nothing to show!</p>
+      <p class="text-muted">No bookings yet.</p>
     <% end %>
   </div>
 
-  <div>
-    <h2>My Requested Bookings</h2>
+  <!-- My Requested Bookings -->
+  <div class="title-section">
+    <h3 class="fw-bold mb-3 text-center">My Requested Bookings</h3>
     <% if @booking_requests.any? %>
-      <% @booking_requests.each do |booking| %>
-        <div class="booking-card">
-          <h3><strong>Apparel:</strong> <%= booking.apparel.name %></h3>
-          <p><strong>Start Date:</strong> <%= booking.start_date %></p>
-          <p><strong>End Date:</strong> <%= booking.end_date %></p>
-          <p><strong>Order Price:</strong> <%= booking.order_price %></p>
-          <p><strong>Status:</strong> <%= booking.status.titleize %></p>
-          <% if booking.pending? %>
-            <%= link_to "Cancel", cancel_apparel_booking_path(booking.apparel, booking), data: { turbo_method: :patch, turbo_confirm: "Are you sure?" }, class: "btn btn-warning" %>
-          <% end %>
-        </div>
-      <% end %>
+      <div class="row g-4">
+        <% @booking_requests.each do |booking| %>
+          <div class="col-md-6">
+            <div class="card p-3 shadow-sm border-0 rounded-4">
+              <h5 class="fw-bold">Apparel: <%= booking.apparel.name %></h5>
+              <p><strong>Start:</strong> <%= booking.start_date %></p>
+              <p><strong>End:</strong> <%= booking.end_date %></p>
+              <p><strong>Price:</strong> <%= number_to_currency(booking.order_price) %></p>
+              <p><strong>Status:</strong> <span class="badge bg-<%= booking.status == 'pending' ? 'warning' : 'success' %>"><%= booking.status.titleize %></span></p>
+              <% if booking.pending? %>
+                <%= link_to "Cancel", cancel_apparel_booking_path(booking.apparel, booking), data: { turbo_method: :patch, turbo_confirm: "Cancel request?" }, class: "btn btn-outline-danger btn-sm" %>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
     <% else %>
-      <p>Nothing to show!</p>
+      <p class="text-muted">No requested bookings yet.</p>
     <% end %>
   </div>
 </div>

@@ -75,3 +75,17 @@
   display: flex;
   align-items: center;
 }
+
+
+.form-check-input {
+  width: auto;
+  height: auto;
+  border-radius: 0;
+  appearance: auto; /* Reset to default system look */
+  display: flex;
+  align-items: start;
+}
+
+.form-rent {
+  padding: 60px;
+}
