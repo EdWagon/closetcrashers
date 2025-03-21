@@ -50,12 +50,8 @@ cl9= Apparel.new(name: 'Detroit Jacket', color: Color.find_by(name: 'Grey'),user
 # file_path = Rails.root.join("app", "assets", "images", "seeds", "cl1-1.jpg")
 file_path = "app/assets/images/seeds/"
 cl1.photos.attach(io: File.open("#{file_path}cl1-1.jpg"), filename: 'cl1-1.jpg', content_type: "image/jpeg")
-
-# cl1.photos.attach(io: File.read("app/assets/images/seeds/"), filename: 'cl1-2.jpg', content_type: "image/jpeg")
-# cl1.photos.attach(io: File.read("app/assets/images/seeds/cl1-3.jpg"), filename: 'image.jpg', content_type: "image/jpeg")
-
-
-
+cl1.photos.attach(io: File.open("#{file_path}cl1-2.jpg"), filename: 'cl1-2.jpg', content_type: "image/jpeg")
+cl1.photos.attach(io: File.open("#{file_path}cl1-3.jpg"), filename: 'cl1-3.jpg', content_type: "image/jpeg")
 
 # cl1.photos.attach(io: URI.parse('https://img1.theiconic.com.au/Q9cW8Aq9cyryXXU8PNTtIbokNjw=/634x811/filters:quality(95):fill(ffffff)/http%3A%2F%2Fstatic.theiconic.com.au%2Fp%2Faire-2516-6279971-1.jpg').open(headers), filename: 'image.jpg')
 # cl1.photos.attach(io: URI.parse('https://img1.theiconic.com.au/8AT6ytkTKi5XYDxN87-QXkXTWkg=/fit-in/406x512/filters:fill(ffffff):quality(90):format(webp)/http%3A%2F%2Fstatic.theiconic.com.au%2Fp%2Faire-2516-6279971-4.jpg').open(headers), filename: 'image.jpg')
@@ -63,30 +59,60 @@ cl1.photos.attach(io: File.open("#{file_path}cl1-1.jpg"), filename: 'cl1-1.jpg',
 
 # cl2.photos.attach(io: URI.parse('https://img1.theiconic.com.au/mYfY9SYZ79nSZBM3zGfVJOwW-s4=/634x811/filters:quality(95):fill(ffffff)/http%3A%2F%2Fstatic.theiconic.com.au%2Fp%2Fjack-jones-9750-5871971-1.jpg').open(headers), filename: 'image.jpg')
 # cl2.photos.attach(io: URI.parse('https://img1.theiconic.com.au/iIm0XJGIdtcX9GvdahrEIGWizCY=/634x811/filters:quality(95):fill(ffffff)/http%3A%2F%2Fstatic.theiconic.com.au%2Fp%2Fjack-jones-9577-5871971-2.jpg').open(headers), filename: 'image.jpg')
-# cl2.photos.attach(io: URI.parse('https://img1.theiconic.com.au/TmHA26DntkWrEcMAHXj612jz7Ko=/634x811/filters:quality(95):fill(ffffff)/http%3A%2F%2Fstatic.theiconic.com.au%2Fp%2Fjack-jones-9765-5871971-6.jpg').open(headers), filename: 'image.jpg')
+
+cl2.photos.attach(io: File.open("#{file_path}cl2-1.jpg"), filename: 'cl2-1.jpg', content_type: "image/jpeg")
+cl2.photos.attach(io: File.open("#{file_path}cl2-2.jpg"), filename: 'cl2-2.jpg', content_type: "image/jpeg")
+
 
 # cl3.photos.attach(io: URI.parse('https://img1.theiconic.com.au/NZz2Gkmy-UIxYoAoXxe8ldHeHpE=/634x811/filters:quality(95):fill(ffffff)/http%3A%2F%2Fstatic.theiconic.com.au%2Fp%2Flioness-7922-5375481-1.jpg').open(headers), filename: 'image.jpg')
 # cl3.photos.attach(io: URI.parse('https://img1.theiconic.com.au/mqDgA_rswbjiRNc4y10lllAKyiA=/634x811/filters:quality(95):fill(ffffff)/http%3A%2F%2Fstatic.theiconic.com.au%2Fp%2Flioness-7928-5375481-3.jpg').open(headers), filename: 'image.jpg')
 
+cl3.photos.attach(io: File.open("#{file_path}cl3-1.jpg"), filename: 'cl3-1.jpg', content_type: "image/jpeg")
+cl3.photos.attach(io: File.open("#{file_path}cl3-2.jpg"), filename: 'cl3-2.jpg', content_type: "image/jpeg")
+
+
+
 # cl4.photos.attach(io: URI.parse('https://img1.theiconic.com.au/iz_qugKYtdNG7QCE-6G1GsIeD8A=/634x811/filters:quality(95):fill(ffffff)/http%3A%2F%2Fstatic.theiconic.com.au%2Fp%2Flioness-8938-6751132-1.jpg').open(headers), filename: 'image.jpg')
 # cl4.photos.attach(io: URI.parse('https://img1.theiconic.com.au/uCErdGaxcpgW5MKMXW2RWH0-_vM=/634x811/filters:quality(95):fill(ffffff)/http%3A%2F%2Fstatic.theiconic.com.au%2Fp%2Flioness-8938-6751132-5.jpg').open(headers), filename: 'image.jpg')
+
+cl4.photos.attach(io: File.open("#{file_path}cl4-1.jpg"), filename: 'cl4-1.jpg', content_type: "image/jpeg")
+cl4.photos.attach(io: File.open("#{file_path}cl4-2.jpg"), filename: 'cl4-2.jpg', content_type: "image/jpeg")
 
 # cl5.photos.attach(io: URI.parse('https://img1.theiconic.com.au/UepStHwjVOpIgFSU6XF11mpaDo4=/634x811/filters:quality(95):fill(ffffff)/http%3A%2F%2Fstatic.theiconic.com.au%2Fp%2Ftussah-1990-5918932-1.jpg').open(headers), filename: 'image.jpg')
 # cl5.photos.attach(io: URI.parse('https://img1.theiconic.com.au/SxqxwZ0u0dOgKBLlu-87Zteuz90=/634x811/filters:quality(95):fill(ffffff)/http%3A%2F%2Fstatic.theiconic.com.au%2Fp%2Ftussah-2001-5918932-3.jpg').open(headers), filename: 'image.jpg')
 
+cl5.photos.attach(io: File.open("#{file_path}cl5-1.jpg"), filename: 'cl5-1.jpg', content_type: "image/jpeg")
+cl5.photos.attach(io: File.open("#{file_path}cl5-2.jpg"), filename: 'cl5-2.jpg', content_type: "image/jpeg")
+
 # cl6.photos.attach(io: URI.parse('https://img1.theiconic.com.au/F7RnH66csl--Zx07Yr-_9D242j4=/634x811/filters:quality(95):fill(ffffff)/http%3A%2F%2Fstatic.theiconic.com.au%2Fp%2Flover-the-label-8436-1462332-3.jpg').open(headers), filename: 'image.jpg')
 # cl6.photos.attach(io: URI.parse('https://img1.theiconic.com.au/LIAjZPBaMv3WtZTaQmy12Bg4g5o=/634x811/filters:quality(95):fill(ffffff)/http%3A%2F%2Fstatic.theiconic.com.au%2Fp%2Flover-the-label-8436-1462332-4.jpg').open(headers), filename: 'image.jpg')
+
+cl6.photos.attach(io: File.open("#{file_path}cl6-1.jpg"), filename: 'cl6-1.jpg', content_type: "image/jpeg")
+cl6.photos.attach(io: File.open("#{file_path}cl6-2.jpg"), filename: 'cl6-2.jpg', content_type: "image/jpeg")
 
 # cl7.photos.attach(io: URI.parse('https://img1.theiconic.com.au/WgnwWUs6sWB56-5nfqzznGQHeso=/634x811/filters:quality(95):fill(ffffff)/http%3A%2F%2Fstatic.theiconic.com.au%2Fp%2Fjo-mercer-4497-2965342-1.jpg').open(headers), filename: 'image.jpg')
 # cl7.photos.attach(io: URI.parse('https://img1.theiconic.com.au/lrdC3RrwPcEFXtwjQA5fKDcePnw=/634x811/filters:quality(95):fill(ffffff)/http%3A%2F%2Fstatic.theiconic.com.au%2Fp%2Fjo-mercer-4501-2965342-3.jpg').open(headers), filename: 'image.jpg')
 # cl7.photos.attach(io: URI.parse('https://img1.theiconic.com.au/LJ1FaAKKx8of2oiaxdxRmT1jkY0=/634x811/filters:quality(95):fill(ffffff)/http%3A%2F%2Fstatic.theiconic.com.au%2Fp%2Fjo-mercer-4509-2965342-7.jpg').open(headers), filename: 'image.jpg')
+
+cl7.photos.attach(io: File.open("#{file_path}cl7-1.jpg"), filename: 'cl7-1.jpg', content_type: "image/jpeg")
+cl7.photos.attach(io: File.open("#{file_path}cl7-2.jpg"), filename: 'cl7-2.jpg', content_type: "image/jpeg")
+cl7.photos.attach(io: File.open("#{file_path}cl7-3.jpg"), filename: 'cl7-3.jpg', content_type: "image/jpeg")
+
 
 # cl8.photos.attach(io: URI.parse('https://img1.theiconic.com.au/bv7DWdIiAjC3nIcbTS6xEYuQ3lY=/634x811/filters:quality(95):fill(ffffff)/http%3A%2F%2Fstatic.theiconic.com.au%2Fp%2Fr-m-williams-3294-0594842-1.jpg').open(headers), filename: 'image.jpg')
 # cl8.photos.attach(io: URI.parse('https://img1.theiconic.com.au/JaxLXG5W9r4NdvPBcJZ1pxKilFc=/634x811/filters:quality(95):fill(ffffff)/http%3A%2F%2Fstatic.theiconic.com.au%2Fp%2Fr-m-williams-3363-0594842-2.jpg').open(headers), filename: 'image.jpg')
 # cl8.photos.attach(io: URI.parse('https://img1.theiconic.com.au/Lt5G1WhejI2wSA7MF72onh37HlY=/634x811/filters:quality(95):fill(ffffff)/http%3A%2F%2Fstatic.theiconic.com.au%2Fp%2Fr-m-williams-3415-0594842-4.jpg').open(headers), filename: 'image.jpg')
 # cl8.photos.attach(io: URI.parse('https://img1.theiconic.com.au/qbwGR6YDdlZyMA9rSos7JdnAYlY=/634x811/filters:quality(95):fill(ffffff)/http%3A%2F%2Fstatic.theiconic.com.au%2Fp%2Fr-m-williams-3406-0594842-3.jpg').open(headers), filename: 'image.jpg')
 
+cl8.photos.attach(io: File.open("#{file_path}cl8-1.jpg"), filename: 'cl8-1.jpg', content_type: "image/jpeg")
+cl8.photos.attach(io: File.open("#{file_path}cl8-2.jpg"), filename: 'cl8-2.jpg', content_type: "image/jpeg")
+cl8.photos.attach(io: File.open("#{file_path}cl8-3.jpg"), filename: 'cl8-3.jpg', content_type: "image/jpeg")
+cl8.photos.attach(io: File.open("#{file_path}cl8-4.jpg"), filename: 'cl8-4.jpg', content_type: "image/jpeg")
+
+
 # cl9.photos.attach(io: URI.parse('https://img1.theiconic.com.au/-UuegPeYa9jfoJnvFkPT8He7RUs=/634x811/filters:quality(95):fill(ffffff)/http%3A%2F%2Fstatic.theiconic.com.au%2Fp%2Fcarhartt-wip-8784-2761532-1.jpg').open(headers), filename: 'image.jpg')
+cl9.photos.attach(io: File.open("#{file_path}cl9-1.jpg"), filename: 'cl9-1.jpg', content_type: "image/jpeg")
+
 cl1.save
 cl2.save
 cl3.save
